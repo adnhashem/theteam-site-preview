@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="نموذج تصميمي لموقع TheTeam التعريفي — للعرض والمراجعة فقط، ليس الموقع الحقيقي.">
+<meta name="color-scheme" content="light dark">
+<title>نموذج موقع TheTeam</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --paper:#FAF8F5; --paper-2:#F3EFEA; --ink:#16121F; --muted:#57506B;
+  --deep:#3B2A6B; --accent:#6D3EE8; --accent-soft:#8B5CF6;
+  --hair:#E4DFD8; --field:#8E8578; --on-accent:#FFFFFF;
+  --grain:rgba(22,18,31,.045);
+  --display:'Readex Pro','IBM Plex Sans Arabic',system-ui,sans-serif;
+  --body:'IBM Plex Sans Arabic','Readex Pro',system-ui,sans-serif;
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4rem; --s7:6rem; --s8:8rem;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12101A; --paper-2:#1B1826; --ink:#EDE9F5; --muted:#B8B0C9;
+    --deep:#C4B5FD; --accent:#A78BFA; --accent-soft:#8B5CF6;
+    --hair:#2C2739; --field:#6F667F; --on-accent:#12101A;
+    --grain:rgba(237,233,245,.05);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12101A; --paper-2:#1B1826; --ink:#EDE9F5; --muted:#B8B0C9;
+  --deep:#C4B5FD; --accent:#A78BFA; --accent-soft:#8B5CF6;
+  --hair:#2C2739; --field:#6F667F; --on-accent:#12101A;
+  --grain:rgba(237,233,245,.05);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:1rem; line-height:1.8;
+  font-weight:300; -webkit-font-smoothing:antialiased;
+  direction:rtl;
+}
+.wrap{max-width:1140px; margin-inline:auto; padding-inline:var(--s3)}
+h1,h2,h3{font-family:var(--display); font-weight:500; line-height:1.25; text-wrap:balance; margin:0}
+p{margin:0; max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+/* ── الحركة: ظهور فقط، ملفوفة كاملة (09 §9) ── */
+@media not (prefers-reduced-motion){
+  [data-reveal]{
+    animation:rise linear both;
+    animation-duration:1ms;
+    animation-timeline:view();
+    animation-range:entry 15% cover 42%;
+  }
+}
+:root[data-motion="off"] [data-reveal]{animation-timeline:none; animation:none}
+@keyframes rise{
+  from{opacity:0; transform:translateY(26px)}
+  80%,to{opacity:1; transform:none}
+}
+
+/* ── شريط التقدّم ── */
+.prog{position:fixed; inset-block-start:0; inset-inline:0; block-size:2px; background:var(--accent);
+  transform-origin:inset-inline-start; z-index:50;
+  animation:grow linear both; animation-duration:1ms; animation-timeline:scroll(root block)}
+:root[data-motion="off"] .prog{animation-timeline:none; animation:none; transform:scaleX(0)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ── الرأس ── */
+header{position:sticky; inset-block-start:0; z-index:40; background:color-mix(in oklab,var(--paper) 88%,transparent);
+  backdrop-filter:blur(14px); border-block-end:1px solid var(--hair)}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:var(--s3);
+  padding-block:var(--s2); min-block-size:64px}
+.brand{font-family:var(--display); font-weight:600; font-size:1.0625rem; letter-spacing:.02em}
+.brand span{color:var(--accent)}
+.links{display:flex; gap:var(--s3); list-style:none; margin:0; padding:0; font-size:.9375rem; color:var(--muted)}
+.links a{text-decoration:none}
+.links a:hover{color:var(--ink)}
+@media (max-width:820px){.links{display:none}}
+.mbtn{font:inherit; font-size:.8125rem; color:var(--muted); background:none; cursor:pointer;
+  border:1px solid var(--field); border-radius:999px; padding:.35rem .9rem; white-space:nowrap}
+.mbtn:hover{color:var(--ink); border-color:var(--ink)}
+
+/* ── البطل ── */
+.hero{padding-block:clamp(var(--s6),12vw,var(--s8)) var(--s7); border-block-end:1px solid var(--hair)}
+.eyebrow{font-size:.8125rem; letter-spacing:.16em; color:var(--muted); font-weight:500;
+  display:flex; align-items:center; gap:.75rem}
+.eyebrow::after{content:""; block-size:1px; inline-size:56px; background:var(--field); opacity:.6}
+h1{font-size:clamp(2.4rem,6.2vw,4.2rem); font-weight:400; letter-spacing:-.02em; margin-block:var(--s3) var(--s3)}
+h1 em{font-style:normal; color:var(--deep); font-weight:600}
+.lede{font-size:clamp(1.0625rem,2vw,1.25rem); color:var(--muted); line-height:1.85}
+.cta-row{display:flex; flex-wrap:wrap; gap:var(--s2); margin-block-start:var(--s5)}
+.btn{font-family:var(--display); font-size:.9375rem; font-weight:500; text-decoration:none;
+  padding:.85rem 1.6rem; border-radius:2px; transition:all .2s var(--ease); display:inline-block}
+.btn-1{background:var(--accent); color:var(--on-accent); border:1px solid var(--accent)}
+.btn-1:hover{filter:brightness(1.12)}
+.btn-2{border:1px solid var(--field); color:var(--ink)}
+.btn-2:hover{border-color:var(--ink)}
+
+/* ── الأرقام ── */
+.proof{padding-block:var(--s6); border-block-end:1px solid var(--hair); background:var(--paper-2)}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:var(--s5) var(--s4)}
+.stat .n{font-family:var(--display); font-size:clamp(2.2rem,4.4vw,3rem); font-weight:300;
+  color:var(--deep); font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-.02em}
+.stat .l{font-size:.875rem; color:var(--muted); margin-block-start:.6rem}
+
+/* ── الأقسام ── */
+section{padding-block:var(--s7)}
+.shead{display:flex; align-items:baseline; justify-content:space-between; gap:var(--s3);
+  flex-wrap:wrap; margin-block-end:var(--s5); padding-block-end:var(--s2); border-block-end:1px solid var(--hair)}
+h2{font-size:clamp(1.5rem,3vw,2rem); font-weight:400; letter-spacing:-.01em}
+.snum{font-family:var(--display); font-size:.8125rem; color:var(--muted); font-variant-numeric:tabular-nums}
+
+/* ── الأعمال ── */
+.work{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:var(--s4)}
+.case{text-decoration:none; display:block}
+.frame{aspect-ratio:4/3; border:1px solid var(--hair); background:
+  linear-gradient(135deg,var(--paper-2),color-mix(in oklab,var(--deep) 9%,var(--paper-2)));
+  position:relative; overflow:hidden; transition:border-color .25s var(--ease)}
+.frame::after{content:""; position:absolute; inset:0;
+  background:repeating-linear-gradient(45deg,transparent 0 11px,var(--grain) 11px 12px)}
+.case:hover .frame{border-color:var(--field)}
+.tag{position:absolute; inset-block-start:12px; inset-inline-start:12px; z-index:1;
+  font-size:.6875rem; letter-spacing:.1em; background:var(--paper); color:var(--muted);
+  padding:.3rem .65rem; border:1px solid var(--hair)}
+.case h3{font-size:1.0625rem; font-weight:500; margin-block-start:var(--s2)}
+.case p{font-size:.9375rem; color:var(--muted); margin-block-start:.3rem}
+
+/* ── القدرات ── */
+.caps{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:0;
+  border-block-start:1px solid var(--hair)}
+.cap{padding:var(--s4) var(--s3) var(--s4) 0; border-block-end:1px solid var(--hair)}
+.cap h3{font-size:1rem; font-weight:600; margin-block-end:.5rem}
+.cap p{font-size:.9375rem; color:var(--muted)}
+
+/* ── الختام ── */
+.end{background:var(--deep); color:var(--paper); padding-block:var(--s7); margin-block-start:var(--s6)}
+:root[data-theme="dark"] .end,:root:not([data-theme="light"]) .end{color:#12101A}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .end{color:var(--paper)}}
+.end h2{color:inherit; font-size:clamp(1.7rem,4vw,2.6rem); max-inline-size:18ch}
+.end p{color:inherit; opacity:.82; margin-block-start:var(--s3)}
+.end .btn-1{background:var(--paper); color:var(--deep); border-color:var(--paper); margin-block-start:var(--s4)}
+
+/* ── شريط النموذج ── */
+.note{border-block-start:1px solid var(--hair); padding-block:var(--s5); font-size:.875rem; color:var(--muted)}
+.note h3{font-family:var(--display); font-size:.9375rem; color:var(--ink); margin-block-end:var(--s2)}
+.note ul{margin:0; padding-inline-start:1.1rem; display:grid; gap:.45rem; max-inline-size:70ch}
+.note code{font-family:ui-monospace,'SF Mono',monospace; font-size:.8125em;
+  background:var(--paper-2); padding:.1rem .35rem; border:1px solid var(--hair)}
+.badge{display:inline-block; font-size:.6875rem; letter-spacing:.12em; color:var(--accent);
+  border:1px solid var(--accent); padding:.25rem .7rem; margin-block-end:var(--s3)}
+</style>
+</head>
+<body>
+
+
+<div class="prog" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">The<span>Team</span></div>
+    <ul class="links">
+      <li><a href="#work">أعمالنا</a></li>
+      <li><a href="#caps">قدراتنا</a></li>
+      <li><a href="#proof">الأرقام</a></li>
+    </ul>
+    <button class="mbtn" id="motion" aria-pressed="false">إيقاف الحركة</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="eyebrow" data-reveal>وكالة إعلامية · الكويت</div>
+    <h1 data-reveal>نُنتج عملاً<br>يصمد أمام <em>القياس</em>.</h1>
+    <p class="lede" data-reveal>منذ 2016 ونحن نبني حضوراً بصرياً لمؤسسات لا تحتمل التجربة والخطأ — قطاع صحي، جهات حكومية، وعلامات تجارية كبرى في الكويت والخليج.</p>
+    <div class="cta-row" data-reveal>
+      <a class="btn btn-1" href="#end">اطلب عرضاً</a>
+      <a class="btn btn-2" href="#work">شاهد الأعمال</a>
+    </div>
+  </div>
+
+  <div class="proof" id="proof">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat" data-reveal><div class="n">120+</div><div class="l">مشروعاً منجزاً</div></div>
+        <div class="stat" data-reveal><div class="n">38</div><div class="l">عميلاً مؤسسياً</div></div>
+        <div class="stat" data-reveal><div class="n">9</div><div class="l">سنوات في السوق</div></div>
+        <div class="stat" data-reveal><div class="n">94%</div><div class="l">نسبة تجديد التعاقد</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="wrap" id="work">
+    <div class="shead"><h2 data-reveal>أعمال مختارة</h2><div class="snum" data-reveal>01 — 03</div></div>
+    <div class="work">
+      <a class="case" href="#" data-reveal>
+        <div class="frame"><span class="tag">قطاع صحي</span></div>
+        <h3>حملة توعية موسمية</h3>
+        <p>هوية، إنتاج فيديو، وإدارة منصات — 6 أسابيع.</p>
+      </a>
+      <a class="case" href="#" data-reveal>
+        <div class="frame"><span class="tag">جهة حكومية</span></div>
+        <h3>تغطية مؤتمر سنوي</h3>
+        <p>تصوير، مونتاج يومي، وتقارير أداء.</p>
+      </a>
+      <a class="case" href="#" data-reveal>
+        <div class="frame"><span class="tag">تجزئة</span></div>
+        <h3>إطلاق فرع جديد</h3>
+        <p>خطة إعلامية متكاملة عبر 4 قنوات.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap" id="caps">
+    <div class="shead"><h2 data-reveal>ما نقدّمه</h2><div class="snum" data-reveal>04</div></div>
+    <div class="caps">
+      <div class="cap" data-reveal><h3>التخطيط الإعلامي</h3><p>خطة موزّعة على الشهر بأرقام قابلة للمتابعة، لا وعود عامة.</p></div>
+      <div class="cap" data-reveal><h3>الإنتاج المرئي</h3><p>تصوير ومونتاج بفريق داخلي — جدول تسليم واضح.</p></div>
+      <div class="cap" data-reveal><h3>الهوية البصرية</h3><p>أنظمة تصلح للتوسّع، لا شعار واحد معلّق.</p></div>
+      <div class="cap" data-reveal><h3>إدارة المنصات</h3><p>تشغيل يومي وتقرير شهري يصل في موعده.</p></div>
+    </div>
+  </section>
+</main>
+
+<div class="end" id="end">
+  <div class="wrap">
+    <h2 data-reveal>ابدأ بمكالمة مدّتها 20 دقيقة.</h2>
+    <p data-reveal>نسمع منك، ونعود إليك بخطة مبدئية وتقدير تكلفة خلال 3 أيام عمل.</p>
+    <a class="btn btn-1" href="#" data-reveal>اطلب عرضاً</a>
+  </div>
+</div>
+
+<div class="wrap note">
+  <div class="badge">نموذج تصميمي · ليس الموقع الحقيقي</div>
+  <h3>ملاحظات التنفيذ</h3>
+  <ul>
+    <li><strong>الحركة ظهور فقط</strong> — عبر <code>animation-timeline: view()</code> بـ CSS أصلي، صفر JavaScript، تعمل على compositor thread.</li>
+    <li><strong>معطَّلة بالطريقة الصحيحة</strong> — ملفوفة بـ <code>@media not (prefers-reduced-motion)</code>، لا بتصفير المدة (تصفير المدة لا يوقف حركة السكرول إطلاقاً).</li>
+    <li><strong>زر «إيقاف الحركة»</strong> — مطلب WCAG 2.3.3: بديل داخل الموقع لمن لم يضبط إعداد النظام. جرّبه.</li>
+    <li><strong>كل الألوان محسوبة</strong> — أدنى تباين نص 5.65:1، والنص الأساسي 17.37:1 (AAA).</li>
+    <li><strong>الأرقام غربية</strong> (120، 94%) داخل نص عربي — معيار الخليج، لا الأرقام الشرقية.</li>
+    <li><strong>خصائص منطقية</strong> بالكامل (<code>inline-start</code>, <code>block-end</code>) — الصفحة تنقلب للإنجليزية بلا تعديل CSS واحد.</li>
+    <li>الأرقام وأسماء الأعمال <strong>افتراضية</strong> لأغراض العرض.</li>
+  </ul>
+</div>
+
+<script>
+const r=document.documentElement, b=document.getElementById('motion');
+b.addEventListener('click',()=>{
+  const off=r.getAttribute('data-motion')==='off';
+  r.setAttribute('data-motion',off?'on':'off');
+  b.setAttribute('aria-pressed',String(!off));
+  b.textContent=off?'إيقاف الحركة':'تشغيل الحركة';
+});
+</script>
+
+</body>
+</html>
